@@ -1,48 +1,53 @@
 package modelo;
 
-public class Juego
-{   
+
+import java.util.Random;
+
+import controlador.Opciones;
+
+public class Juego{   
     //?Estas son las opciones que recibe el constructor
     // * P1 es el jugador y cpu la maquina
-    public int opcionP1, opcionCPU; 
+    public Opciones opcionP1, opcionCPU;
+    
 
-    public Juego()
-    {
+    public Juego(){
         // *constructor
     }
 
-    public Juego(int opcionP1, int opcionCPU)
-    {
+    public Juego(Opciones opcionP1, Opciones opcionCPU){
+
         this.opcionP1 = opcionP1;
         this.opcionCPU = opcionCPU;
     }
 
-    // *opcionP1
-    public int getOpcionP1()
-    {
-        return opcionP1;
+
+    //Generador de un numero random
+    public int RandomInt(){
+        Random random = new Random();
+        int randNum = random.nextInt(3) + 1;
+        return randNum;
     }
 
-    public void setOpcionP1()
-    {
-        this.opcionP1 = opcionP1;
-    }
-
-    // *opcionCPU
-
-    public int getOpcionCPU()
-    {
+    public Opciones generarOpcionCPU(){
+        int x = RandomInt();
+        switch(x) {
+            case 1:
+                opcionCPU = Opciones.PIEDRA;
+                break;
+            case 2:
+                opcionCPU = Opciones.PAPEL;
+                break;
+            case 3:
+                opcionCPU = Opciones.TIJERA;
+                break;
+            default:
+                throw new IllegalStateException("Valor inesperado: " + x);
+        }
         return opcionCPU;
     }
 
-    public void setOpcionCPU()
-    {
-        this.opcionCPU = opcionCPU;
+    public void DeterminarGanador(){
+        
     }
-
-    //? Aqui iran los metodos que permiten el funcinamiento de la logica del juego
-
-    /*
-      metodos logica
-     */
 }
