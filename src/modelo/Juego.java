@@ -1,5 +1,6 @@
 package modelo;
 
+
 import java.util.Random;
 
 import controlador.Opciones;
@@ -15,9 +16,11 @@ public class Juego{
     }
 
     public Juego(Opciones opcionP1, Opciones opcionCPU){
+
         this.opcionP1 = opcionP1;
         this.opcionCPU = opcionCPU;
     }
+
 
     //Generador de un numero random
     public int RandomInt(){
@@ -47,6 +50,4 @@ public class Juego{
     public void DeterminarGanador(){
         
     }
-
-
 }
