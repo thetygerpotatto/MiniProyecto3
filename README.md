@@ -1,4 +1,4 @@
-# ProyectoFerreteria
+# ProyectoJuego PIEDRA-PAPEL-TIJERA
 ## Desarrolladores:
 
 > Jaime Andres Noreña - 2359523
