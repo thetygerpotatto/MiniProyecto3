@@ -9,6 +9,8 @@ public class Juego{
     //?Estas son las opciones que recibe el constructor
     // * P1 es el jugador y cpu la maquina
     public Opciones opcionP1, opcionCPU;
+    static int isPlaying = -1;
+    public int x;
     String won;
 
     public Juego(){
@@ -31,8 +33,8 @@ public class Juego{
     }
 
     public Opciones generarOpcionCPU(){
-        int x = RandomInt();
-        switch(x) {
+        int y = RandomInt();
+        switch(y) {
             case 1:
                 opcionCPU = Opciones.PIEDRA;
                 break;
@@ -49,12 +51,14 @@ public class Juego{
     }
     public Opciones generarOpcionPLYR(){
         Scanner scanner = new Scanner(System.in);
-        int x = 0;
+        x = -1;
         
         try {
             System.out.println("---------------------------------------------\n1 = PIERDA \n2 = PAPEL \n3 = TIJERA");
             x = scanner.nextInt();
             switch(x) {
+                case 0:
+                isPlaying = 0;
                 case 1:
                 opcionP1 = Opciones.PIEDRA;
                 break;
