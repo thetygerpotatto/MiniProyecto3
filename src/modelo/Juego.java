@@ -1,7 +1,5 @@
 package modelo;
-import java.io.InputStream;
 import java.util.Random;
-import java.util.Scanner;
 
 import controlador.Opciones;
 
@@ -11,20 +9,8 @@ public class Juego{
     public Opciones opcionP1, opcionCPU;
     static int isPlaying = -1;
     public int x;
-    String won;
+    String won, cpuOp;
 
-    public Juego(){
-        this.opcionP1 = generarOpcionPLYR();
-        this.opcionCPU = generarOpcionCPU();
-        this.won = won;
-
-    }
-
-    public Juego(Opciones opcionP1, Opciones opcionCPU){
-
-        this.opcionP1 = generarOpcionPLYR();
-        this.opcionCPU = generarOpcionCPU();
-    }
     //Generador de un numero random
     public int RandomInt(){
         Random random = new Random();
@@ -37,45 +23,34 @@ public class Juego{
         switch(y) {
             case 1:
                 opcionCPU = Opciones.PIEDRA;
+                cpuOp = "PIEDRA";
                 break;
             case 2:
                 opcionCPU = Opciones.PAPEL;
+                cpuOp = "PAPEL";
                 break;
             case 3:
                 opcionCPU = Opciones.TIJERA;
+                cpuOp = "TIJERA";
                 break;
             default:
                 throw new IllegalStateException("Valor inesperado: " + x);
         }
         return opcionCPU;
     }
-    public Opciones generarOpcionPLYR(){
-        Scanner scanner = new Scanner(System.in);
-        x = -1;
-        
-        try {
-            System.out.println("---------------------------------------------\n1 = PIERDA \n2 = PAPEL \n3 = TIJERA");
-            x = scanner.nextInt();
-            switch(x) {
-                case 0:
-                isPlaying = 0;
-                case 1:
-                opcionP1 = Opciones.PIEDRA;
-                break;
-                case 2:
-                opcionP1 = Opciones.PAPEL;
-                break;
-                case 3:
-                opcionP1 = Opciones.TIJERA;
-                break;
-                default:
-                throw new IllegalStateException("Valor inesperado: " + x);
-            }
-        } catch (Exception e) {
-            System.out.println("No diferencias el 1 2 o 3?, vuelve a escoger");
-        }  
-        
-        return opcionP1;
+
+    public String getCpuOpMsg() {
+        return cpuOp;
+    }
+
+    public void setPlayerOption(Opciones op) {
+        opcionP1 = op;
+    }
+
+    public String getWinner() {
+        generarOpcionCPU();
+        vs();
+        return won;
     }
 
     public void rock(){
@@ -105,6 +80,7 @@ public class Juego{
         }
 
     }
+
     public void vs(){
 
         //Se comparan las 3 posibles elecciones del jugador con las 2 posibles de la maquina
@@ -126,10 +102,9 @@ public class Juego{
             }else if (opcionP1 == Opciones.TIJERA) {
                 scisor();
             }
-            
-            
         }
     }
+
     public void DeterminarGanador(){
         System.out.println("CPU : " + opcionCPU);
         System.out.println("PLAYER : " + opcionP1);

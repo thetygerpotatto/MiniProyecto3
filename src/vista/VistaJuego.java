@@ -1,10 +1,10 @@
 package vista;
 
-import controlador.ControladorJuego;
+import controlador.*;
 
 public interface VistaJuego {
     public void mostrarVista(ControladorJuego controlador);
-    public int opcionP1();
-    public int opcionCPU();
-    public void mostrarGanador(String ganador);
+    public Opciones getOpcionP1();
+    public void mostrarGanador(String ganador, String cpuSelection);
+    public Opciones Selection = null;
 }
