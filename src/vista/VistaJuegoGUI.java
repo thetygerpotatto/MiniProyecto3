@@ -2,8 +2,7 @@ package vista;
 
 import controlador.*;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.JOptionPane; import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;

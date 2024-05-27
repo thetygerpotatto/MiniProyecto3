@@ -2,11 +2,7 @@ package controlador;
 
 import modelo.Juego;
 import vista.VistaJuego;
-import vista.VistaJuegoConsola;
-import vista.VistaJuegoGUI;
 
-//import vista.VistaJuegoConsola;
-//import vista.VistaJuegoGUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
