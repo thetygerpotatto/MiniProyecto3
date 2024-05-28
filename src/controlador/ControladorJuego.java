@@ -14,27 +14,19 @@ public class ControladorJuego implements ActionListener {
 
     public Juego juego;
     public VistaJuego vista;
-    public VistaJuegoConsola vistaConsola;
-    public VistaJuegoGUI vistaGUI;
     public Opciones opcion;
+
     public ControladorJuego(Juego juego, VistaJuego vista) {
         this.juego = juego;
         this.vista = vista;
+        this.vista.mostrarVista(this);
     }
-    public ControladorJuego(Juego juego, VistaJuegoConsola vista) {
-        this.juego = juego;
-        this.vistaConsola = vistaConsola;
-    }
-    public void mostrarInterfaz(){
-        vista.mostrarVista(this);
-    }
-    public ControladorJuego(Juego juego, VistaJuegoGUI vista) {
-        this.juego = juego;
-        this.vistaGUI = vistaGUI;
-    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        Opciones op = vista.getOpcionP1();
+        
+        juego.setPlayerOption(op);
+        vista.mostrarGanador(juego.getWinner(), juego.getCpuOpMsg());
     }
 }
